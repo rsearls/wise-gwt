@@ -11,13 +11,9 @@ import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TreeItem;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import org.jboss.wise.gui.treeElement.EnumerationWiseTreeElement;
 import org.jboss.wise.gwt.client.presenter.InvocationPresenter;
-import org.jboss.wise.gwt.shared.tree.element.ComplexTreeElement;
-import org.jboss.wise.gwt.shared.tree.element.GroupTreeElement;
-import org.jboss.wise.gwt.shared.tree.element.ParameterizedTreeElement;
-import org.jboss.wise.gwt.shared.tree.element.RequestResponse;
-import org.jboss.wise.gwt.shared.tree.element.SimpleTreeElement;
-import org.jboss.wise.gwt.shared.tree.element.TreeElement;
+import org.jboss.wise.gwt.shared.tree.element.*;
 
 /**
  * User: rsearls
@@ -147,9 +143,21 @@ public class InvocationView extends Composite implements InvocationPresenter.Dis
          TreeItem treeItem = new TreeItem();
          HorizontalPanel gPanel = new HorizontalPanel();
          gPanel.add(new Label(getClassType(parentTreeElement)
-            + "<" + getClassType(parentTreeElement) + ">"
-            + " : " + parentTreeElement.getName()));
+             + "<" + getClassType(parentTreeElement) + ">"
+             + " : " + parentTreeElement.getName()));
          treeItem.setWidget(gPanel);
+
+         parentItem.addItem(treeItem);
+
+      } else if (parentTreeElement instanceof EnumerationTreeElement) {
+         TreeItem treeItem = new TreeItem();
+         HorizontalPanel hPanel = new HorizontalPanel();
+         treeItem.setWidget(hPanel);
+         treeItem.setState(true);
+
+         Label label = new Label(getClassType(parentTreeElement) + parentTreeElement.getName() + " = "
+             + ((SimpleTreeElement)parentTreeElement).getValue());
+         hPanel.add(label);
 
          parentItem.addItem(treeItem);
 
