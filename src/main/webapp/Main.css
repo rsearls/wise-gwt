@@ -1,6 +1,3 @@
-.contacts-ListRow td {
-  border-bottom: 1px solid #E2E2E2;
-}
 
 table {
   border-collapse: collapse;
@@ -19,46 +16,6 @@ td {
 th, td {
   padding: 0px;
 }
-  
-td.add-contact-label {
-  text-align: left;
-}
-
-add-contact-input {
-  border: 1px solid red;
-  border-collapse: collapse;
-  margin-right: 0px;
-  margin-left: auto;
-}
-  
-td.contacts-NavContainer {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-td.contacts-ListMenu {
-  background-color: #D0E4F6;
-  padding-bottom: 6px;
-}
-
-td.contacts-ListContainer {
-  padding-right: 10px;
-}
-
-.contacts-HeaderContainer {
-  padding-right: 10px;
-}
-
-td.contacts-ListCheckbox {
-  padding-right: 4px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-}
-
-td.contacts-ListName {
-  padding-top: 2px;
-  padding-bottom: 2px;
-}
 
 /* */
 #wise-banner {
@@ -75,38 +32,14 @@ img {
     width: auto\9; /* ie8 */
 }
 
-.evenBlk { background-color: #DCDCDC; }
-.oddBlk { background-color: #EAEAEA; }
 
-.gwt-DecoratorPanel .middleCenter {
-   height: 100%;
-   width: 100%;
- }
-
-.gwt-VerticalPanel .menu-panel {
-    background-color: yellow;
-}
-
-.gwt-VerticalPanel .base-panel {
-    background-color: mediumaquamarine;
-    border: solid;
-    border-color: black;
-}
-
-.gwt-MyButton {
-    background-color: blueviolet;
-}
-
-.gwt-readWSDL {
-    background-color: mediumaquamarine;
-}
-
-/* debugging only
-#my-button-id { font-size: 150%; }
-
-#base-panel {
-    background-color: mediumaquamarine;
-    border: solid;
-    border-color: black;
-}
-*/
+/** none of these work
+.menu-panel {padding-top: 100px;}
+.wsdl-list  {padding-top: 100px;}
+.wsdlView-panel tr {
+    margin-top: 100px;
+    padding-top: 100px;}
+.readWsdl-Button {float: right;}
+**/
+.evenBlk {background-color: #DCDCDC;}
+.oddBlk {background-color: #EAEAEA;}
