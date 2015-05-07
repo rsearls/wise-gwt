@@ -39,12 +39,12 @@ public class WsdlFinder implements Serializable {
          e.printStackTrace();
       }
 
-      dumpList(wsdlList);
+      //dumpList(wsdlList);
    }
 
    private void dumpList(List<String> wList) {
       for (String s : wList) {
-         System.out.println("##--##--## wsdl-url: " + s);
+         System.out.println("##--## wsdl-url: " + s);
       }
    }
 
