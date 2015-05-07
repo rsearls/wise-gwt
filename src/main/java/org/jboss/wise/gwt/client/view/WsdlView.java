@@ -3,21 +3,8 @@ package org.jboss.wise.gwt.client.view;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.*;
 import org.jboss.wise.gwt.client.presenter.WsdlPresenter;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.CheckBox;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.DecoratorPanel;
-import com.google.gwt.user.client.ui.DockPanel;
-import com.google.gwt.user.client.ui.FlexTable;
-import com.google.gwt.user.client.ui.HTMLTable;
-import com.google.gwt.user.client.ui.HasValue;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.PasswordTextBox;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.Widget;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +25,7 @@ public class WsdlView extends Composite implements WsdlPresenter.Display {
 
    public WsdlView() {
 
-      DecoratorPanel contentTableDecorator = new DecoratorPanel();
+      SimplePanel contentTableDecorator = new SimplePanel();
       initWidget(contentTableDecorator);
       contentTableDecorator.setWidth("100%");
       //contentTableDecorator.setWidth("640px");

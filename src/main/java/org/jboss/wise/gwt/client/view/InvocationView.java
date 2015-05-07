@@ -2,15 +2,7 @@ package org.jboss.wise.gwt.client.view;
 
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.DecoratorPanel;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.Tree;
-import com.google.gwt.user.client.ui.TreeItem;
-import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.*;
 import org.jboss.wise.gui.treeElement.EnumerationWiseTreeElement;
 import org.jboss.wise.gwt.client.presenter.InvocationPresenter;
 import org.jboss.wise.gwt.shared.tree.element.*;
@@ -28,7 +20,7 @@ public class InvocationView extends Composite implements InvocationPresenter.Dis
 
    public InvocationView() {
 
-      DecoratorPanel contentDetailsDecorator = new DecoratorPanel();
+      SimplePanel contentDetailsDecorator = new SimplePanel();
       contentDetailsDecorator.setWidth("100%");
       contentDetailsDecorator.setWidth("640px");  //48em
       initWidget(contentDetailsDecorator);

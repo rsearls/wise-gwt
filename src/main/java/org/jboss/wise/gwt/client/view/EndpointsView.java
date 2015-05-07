@@ -2,15 +2,8 @@ package org.jboss.wise.gwt.client.view;
 
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
+import com.google.gwt.user.client.ui.*;
 import org.jboss.wise.gwt.client.presenter.EndpointsPresenter;
-import com.google.gwt.user.client.ui.DecoratorPanel;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Tree;
-import com.google.gwt.user.client.ui.TreeItem;
-import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.Widget;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.Button;
 import org.jboss.wise.gwt.shared.Operation;
 import org.jboss.wise.gwt.shared.Port;
 import org.jboss.wise.gwt.shared.Service;
@@ -31,7 +24,7 @@ public class EndpointsView extends Composite implements EndpointsPresenter.Displ
 
    public EndpointsView() {
 
-      DecoratorPanel contentDetailsDecorator = new DecoratorPanel();
+      SimplePanel contentDetailsDecorator = new SimplePanel();
       contentDetailsDecorator.setWidth("100%");
       contentDetailsDecorator.setWidth("640px");  //48em
       initWidget(contentDetailsDecorator);
