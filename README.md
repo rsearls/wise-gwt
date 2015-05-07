@@ -16,6 +16,10 @@ Project Directories
     src/main/resources/META-INF/services    ; service files for the WAR.
 
 
+wise-core
+The user must build the wise-core project before building this project.
+
+
 Deploy/Undeploy
     A maven plugin is provided to assist with deploy, undeploy, and redeploy of this app.
         WildFly maven goals
