@@ -2,10 +2,25 @@ package org.jboss.wise.gwt.client.view;
 
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
-import com.google.gwt.user.client.ui.*;
-import org.jboss.wise.gui.treeElement.EnumerationWiseTreeElement;
+
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.Tree;
+import com.google.gwt.user.client.ui.TreeItem;
 import org.jboss.wise.gwt.client.presenter.InvocationPresenter;
-import org.jboss.wise.gwt.shared.tree.element.*;
+import org.jboss.wise.gwt.shared.tree.element.ComplexTreeElement;
+import org.jboss.wise.gwt.shared.tree.element.EnumerationTreeElement;
+import org.jboss.wise.gwt.shared.tree.element.GroupTreeElement;
+import org.jboss.wise.gwt.shared.tree.element.ParameterizedTreeElement;
+import org.jboss.wise.gwt.shared.tree.element.RequestResponse;
+import org.jboss.wise.gwt.shared.tree.element.SimpleTreeElement;
+import org.jboss.wise.gwt.shared.tree.element.TreeElement;
+
 
 /**
  * User: rsearls
@@ -26,15 +41,12 @@ public class InvocationView extends Composite implements InvocationPresenter.Dis
       initWidget(contentDetailsDecorator);
 
       VerticalPanel contentDetailsPanel = new VerticalPanel();
-      contentDetailsPanel.setStyleName("base-panel");
       contentDetailsPanel.setWidth("100%");
       rootNode = new Tree();
       rootNode.addItem(new TreeItem(SafeHtmlUtils.fromString("")));
-      rootNode.setStyleName("invoke-tree");
       contentDetailsPanel.add(rootNode);
 
       HorizontalPanel menuPanel = new HorizontalPanel();
-      menuPanel.setStyleName("menu-panel");
       backButton = new Button("Back");
       viewMessageButton = new Button("View Message");
       cancelButton = new Button("Cancel");

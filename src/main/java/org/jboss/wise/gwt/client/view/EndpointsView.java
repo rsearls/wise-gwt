@@ -2,7 +2,14 @@ package org.jboss.wise.gwt.client.view;
 
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
-import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Tree;
+import com.google.gwt.user.client.ui.TreeItem;
+import com.google.gwt.user.client.ui.Widget;
 import org.jboss.wise.gwt.client.presenter.EndpointsPresenter;
 import org.jboss.wise.gwt.shared.Operation;
 import org.jboss.wise.gwt.shared.Port;
@@ -26,19 +33,16 @@ public class EndpointsView extends Composite implements EndpointsPresenter.Displ
 
       SimplePanel contentDetailsDecorator = new SimplePanel();
       contentDetailsDecorator.setWidth("100%");
-      contentDetailsDecorator.setWidth("640px");  //48em
+      contentDetailsDecorator.setWidth("640px");
       initWidget(contentDetailsDecorator);
 
       VerticalPanel contentDetailsPanel = new VerticalPanel();
-      contentDetailsPanel.setStyleName("base-panel");
       contentDetailsPanel.setWidth("100%");
       rootNode = new Tree();
-      rootNode.setStyleName("endpts-list-tree");
       rootNode.addItem(new TreeItem(SafeHtmlUtils.fromString("")));
       contentDetailsPanel.add(rootNode);
 
       HorizontalPanel menuPanel = new HorizontalPanel();
-      menuPanel.setStyleName("menu-panel");
       backButton = new Button("Back");
       menuPanel.add(backButton);
       contentDetailsPanel.add(menuPanel);

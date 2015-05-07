@@ -1,9 +1,10 @@
 
 table {
-  border-collapse: collapse;
-  margin: 0px;
-  padding: 0px;
-  spacing: 0px;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-left: 5px;
+    padding: 0px;
+    spacing: 0px;
 }
 
 td {
@@ -17,7 +18,11 @@ th, td {
   padding: 0px;
 }
 
-/* */
+.gwt-Button {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}
+
 #wise-banner {
     max-width: 100%;
     height: auto;
@@ -32,14 +37,5 @@ img {
     width: auto\9; /* ie8 */
 }
 
-
-/** none of these work
-.menu-panel {padding-top: 100px;}
-.wsdl-list  {padding-top: 100px;}
-.wsdlView-panel tr {
-    margin-top: 100px;
-    padding-top: 100px;}
-.readWsdl-Button {float: right;}
-**/
 .evenBlk {background-color: #DCDCDC;}
 .oddBlk {background-color: #EAEAEA;}

@@ -2,11 +2,21 @@ package org.jboss.wise.gwt.client.view;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.HasClickHandlers;
-import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.DockPanel;
+import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.HTMLTable;
+import com.google.gwt.user.client.ui.HasValue;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.PasswordTextBox;
+import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Label;
 import org.jboss.wise.gwt.client.presenter.WsdlPresenter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,8 +38,6 @@ public class WsdlView extends Composite implements WsdlPresenter.Display {
       SimplePanel contentTableDecorator = new SimplePanel();
       initWidget(contentTableDecorator);
       contentTableDecorator.setWidth("100%");
-      //contentTableDecorator.setWidth("640px");
-      DOM.setElementAttribute(contentTableDecorator.getElement(), "id", "base-panel");
 
       VerticalPanel contentDetailsPanel = new VerticalPanel();
       contentDetailsPanel.setWidth("100%");
@@ -52,11 +60,8 @@ public class WsdlView extends Composite implements WsdlPresenter.Display {
       VerticalPanel contentDetailsPanel = new VerticalPanel();
       contentDetailsPanel.setWidth("100%");
       detailsTable = new FlexTable();
-      detailsTable.addStyleName("wsdl-table");
       detailsTable.setCellSpacing(0);
       detailsTable.setWidth("100%");
-      //detailsTable.addStyleName("contacts-ListContainer");
-      detailsTable.getColumnFormatter().addStyleName(1, "add-contact-input");
       wsdlAddress = new TextBox();
       wsdlAddress.setWidth("28em");
       user = new TextBox();
@@ -78,7 +83,6 @@ public class WsdlView extends Composite implements WsdlPresenter.Display {
    private HorizontalPanel createMenuPanel() {
 
       HorizontalPanel menuPanel = new HorizontalPanel();
-      menuPanel.addStyleName("menu-panel");
       sendButton = new Button("Read WSDL");
       menuPanel.add(sendButton);
       return menuPanel;
@@ -88,7 +92,6 @@ public class WsdlView extends Composite implements WsdlPresenter.Display {
 
       contentTable = new FlexTable();
       contentTable.setWidth("100%");
-      contentTable.getCellFormatter().addStyleName(0, 0, "contacts-ListContainer");
       contentTable.getCellFormatter().setWidth(0, 0, "100%");
       contentTable.getFlexCellFormatter().setVerticalAlignment(0, 0, DockPanel.ALIGN_TOP);
 
@@ -97,8 +100,6 @@ public class WsdlView extends Composite implements WsdlPresenter.Display {
       contactsTable.setCellSpacing(0);
       contactsTable.setCellPadding(0);
       contactsTable.setWidth("100%");
-      contactsTable.addStyleName("contacts-ListContents");
-      contactsTable.getColumnFormatter().setWidth(0, "15px");
       contentTable.setWidget(1, 0, contactsTable);
       return contentTable;
    }
@@ -113,7 +114,6 @@ public class WsdlView extends Composite implements WsdlPresenter.Display {
       contactsTable.removeAllRows();
 
       for (int i = 0; i < data.size(); ++i) {
-         contactsTable.setWidget(i, 0, new CheckBox());
          contactsTable.setText(i, 1, data.get(i));
       }
    }
@@ -131,7 +131,7 @@ public class WsdlView extends Composite implements WsdlPresenter.Display {
 
       return selectedRow;
    }
-
+  /**
    public List<Integer> getSelectedRows() {
 
       List<Integer> selectedRows = new ArrayList<Integer>();
@@ -145,7 +145,7 @@ public class WsdlView extends Composite implements WsdlPresenter.Display {
 
       return selectedRows;
    }
-
+  **/
    public Widget asWidget() {
 
       return this;

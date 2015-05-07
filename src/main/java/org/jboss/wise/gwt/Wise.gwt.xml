@@ -6,14 +6,12 @@
   <!-- Inherit the default GWT style sheet.  You can change       -->
   <!-- the theme of your GWT application by uncommenting          -->
   <!-- any one of the following lines.                            -->
-  <inherits name='com.google.gwt.user.theme.standard.Standard'/>
+  <stylesheet src='../Main.css' />
+  <!-- <inherits name='com.google.gwt.user.theme.standard.Standard'/> -->
 
   <!-- Other module inherits                                      -->
-  <!--
-    <inherits name='org.jboss.wise.Gui'/>
-  -->
   <!-- Specify the app entry point class.  -->
-    <entry-point class='org.jboss.wise.gwt.client.Main'/>
+  <entry-point class='org.jboss.wise.gwt.client.Main'/>
 
   <!-- Specify the paths for translatable code                    -->
   <source path='client'/>
