@@ -75,6 +75,8 @@ img {
     width: auto\9; /* ie8 */
 }
 
+.evenBlk { background-color: #DCDCDC; }
+.oddBlk { background-color: #EAEAEA; }
 
 .gwt-DecoratorPanel .middleCenter {
    height: 100%;
