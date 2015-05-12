@@ -1,3 +1,24 @@
+/*
+ * JBoss, Home of Professional Open Source.
+ * Copyright 2013, Red Hat, Inc., and individual contributors
+ * as indicated by the @author tags. See the copyright.txt file in the
+ * distribution for a full listing of individual contributors.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
 package org.jboss.wise.shared;
 
 import java.lang.reflect.ParameterizedType;
@@ -134,6 +155,7 @@ public class GWTClientConversationBean extends ClientConversationBean {
 
    /**
     * Generate GWT objects that correspond to WISE objects
+    *
     * @param tNode
     * @return
     */
@@ -169,7 +191,6 @@ public class GWTClientConversationBean extends ClientConversationBean {
             ((ParameterizedType)wte.getClassType()).getRawType().toString());
          gTreeElement.setClassType(rType);
 
-
       } else if (wte instanceof ComplexWiseTreeElement) {
          ComplexWiseTreeElement cNode = (ComplexWiseTreeElement)wte;
          Iterator<Object> keyIt = cNode.getChildrenKeysIterator();
@@ -180,7 +201,7 @@ public class GWTClientConversationBean extends ClientConversationBean {
             treeElement.addChild(te);
 
          }
-         treeElement.setClassType(treeElement.getCleanClassName(wte.getClassType().toString()));
+         //treeElement.setClassType(treeElement.getCleanClassName(wte.getClassType().toString()));
          lazyLoadMap.put(cNode.getClassType().toString(), cNode);
 
       } else if (wte instanceof ParameterizedWiseTreeElement) {
@@ -193,7 +214,7 @@ public class GWTClientConversationBean extends ClientConversationBean {
             treeElement.addChild(te);
 
          }
-         treeElement.setClassType(treeElement.getCleanClassName(wte.getClassType().toString()));
+         //treeElement.setClassType(treeElement.getCleanClassName(wte.getClassType().toString()));
 
       } else if (treeElement instanceof EnumerationTreeElement) {
          EnumerationTreeElement eTreeElement = (EnumerationTreeElement)treeElement;
@@ -202,19 +223,25 @@ public class GWTClientConversationBean extends ClientConversationBean {
             eTreeElement.getEnumValues().addAll(eValuesMap.keySet());
          }
          eTreeElement.setValue(((SimpleWiseTreeElement) wte).getValue());
-         eTreeElement.setClassType(treeElement.getCleanClassName(wte.getClassType().toString()));
+         //eTreeElement.setClassType(treeElement.getCleanClassName(wte.getClassType().toString()));
 
       } else {
          if (wte instanceof SimpleWiseTreeElement) {
             ((SimpleTreeElement) treeElement).setValue(((SimpleWiseTreeElement) wte).getValue());
-
          }
+
+         //treeElement.setClassType(treeElement.getCleanClassName(wte.getClassType().toString()));
+
+      }
+
+      // classType check facilitates automated testing
+      if (!(treeElement instanceof GroupTreeElement) && (wte.getClassType() != null)) {
          treeElement.setClassType(treeElement.getCleanClassName(wte.getClassType().toString()));
       }
 
       treeElement.setName(wte.getName());
       treeElement.setKind(wte.getKind());
-      treeElement.setId(Integer.toString(((Object)wte).hashCode()));
+      treeElement.setId(Integer.toString(((Object) wte).hashCode()));
       treeElementMap.put(treeElement.getId(), wte);
 
       return treeElement;
@@ -223,6 +250,7 @@ public class GWTClientConversationBean extends ClientConversationBean {
 
    /**
     * Generate GWT objects from WISE response objects
+    *
     * @param tNode
     * @return
     */
@@ -302,14 +330,22 @@ public class GWTClientConversationBean extends ClientConversationBean {
             eTreeElement.getEnumValues().addAll(eValuesMap.keySet());
          }
          eTreeElement.setValue(((SimpleWiseTreeElement) wte).getValue());
-         eTreeElement.setClassType(treeElement.getCleanClassName(wte.getClassType().toString()));
+
+         // classType check facilitates automated testing
+         if (wte.getClassType() != null) {
+            eTreeElement.setClassType(treeElement.getCleanClassName(wte.getClassType().toString()));
+         }
 
       } else {
          if (wte instanceof SimpleWiseTreeElement) {
             ((SimpleTreeElement) treeElement).setValue(((SimpleWiseTreeElement) wte).getValue());
 
          }
-         treeElement.setClassType(treeElement.getCleanClassName(wte.getClassType().toString()));
+
+         // classType check facilitates automated testing
+         if (wte.getClassType() != null) {
+            treeElement.setClassType(treeElement.getCleanClassName(wte.getClassType().toString()));
+         }
 
       }
 
@@ -341,7 +377,7 @@ public class GWTClientConversationBean extends ClientConversationBean {
    }
 
 
-   private void userDataTransfer(TreeElement treeElement, WiseTreeElement wte) {
+   public void userDataTransfer(TreeElement treeElement, WiseTreeElement wte) {
 
       if (TreeElement.SIMPLE.equals(treeElement.getKind())) {
 
@@ -620,5 +656,32 @@ public class GWTClientConversationBean extends ClientConversationBean {
    protected void cleanup() {
       super.cleanup();
       treeElementMap.clear();
+   }
+
+   /**
+    * Method faciliates testing
+    * @param tNode
+    * @return
+    */
+   public TreeElement testItWiseOutputPostProcess (TreeNodeImpl tNode) {
+      return wiseOutputPostProcess(tNode);
+   }
+
+   /**
+    * Method faciliates testing
+    * @param tNode
+    * @return
+    */
+   public TreeElement testItWiseDataPostProcess (TreeNodeImpl tNode) {
+      return wiseDataPostProcess(tNode);
+   }
+
+   /**
+    * Method faciliates testing
+    * @param treeElement
+    * @param wte
+    */
+   public void testItUserDataTransfer (TreeElement treeElement, WiseTreeElement wte) {
+      userDataTransfer(treeElement, wte);
    }
 }
