@@ -76,6 +76,7 @@
          <version>${gwtVersion}</version>
          <scope>provided</scope>
       </dependency>
+
       <dependency>
          <groupId>junit</groupId>
          <artifactId>junit</artifactId>
@@ -208,6 +209,13 @@
                <module>org.jboss.wise.gwt.Wise</module>
                <runTarget>Main.html</runTarget>
                <hostedWebapp>${webappDirectory}</hostedWebapp>
+            </configuration>
+         </plugin>
+
+         <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.17</version>
+            <configuration>
             </configuration>
          </plugin>
 
