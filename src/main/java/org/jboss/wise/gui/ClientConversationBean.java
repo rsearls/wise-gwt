@@ -256,7 +256,7 @@ public class ClientConversationBean implements Serializable {
       return outputTree != null || responseMessage != null;
    }
 
-   /*private*/protected void cleanup() {
+   protected void cleanup() {
 
       if (client != null) {
          cleanupTask.removeRef(client);
